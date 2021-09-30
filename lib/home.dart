@@ -115,7 +115,7 @@ class homepage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      width: 10,
+                      width: 15,
                     ),
                     Expanded(
                       child: contain(
@@ -125,7 +125,7 @@ class homepage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 15,),
                 Row(
                   children: [
                     Expanded(
@@ -135,7 +135,7 @@ class homepage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      width: 10,
+                      width: 15,
                     ),
                     Expanded(
                       child: contain(
