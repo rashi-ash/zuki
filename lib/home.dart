@@ -7,13 +7,14 @@ class homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Stack(
             children: [
               Container(
                 height: MediaQuery.of(context).size.height / 3.8,
                 width: MediaQuery.of(context).size.width,
-                decoration:const BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Color(0xFF0244d0),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20),
@@ -35,7 +36,7 @@ class homepage extends StatelessWidget {
                       "DASHBOARD ",
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
-                      style:  TextStyle(
+                      style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                           fontSize: 24),
@@ -51,12 +52,14 @@ class homepage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 130, 20, 0),
                 child: TextButton(
-                  onPressed: (){ Navigator.pushNamed(context, "/Profile");},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/Profile");
+                  },
                   child: Container(
                     height: MediaQuery.of(context).size.height / 3.8,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      boxShadow:const [
+                      boxShadow: const [
                         BoxShadow(
                           color: Color(0XFFf0f0f0),
                           offset: Offset(0.0, 1.0),
@@ -66,98 +69,103 @@ class homepage extends StatelessWidget {
                       color: const Color(0XFFffffff),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(160, 180, 0, 0),
-                child: TextButton(
-                  onPressed:(){ Navigator.pushNamed(context, "/Profile");},
-                  child: Column(
-                    children:const [
-                      CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage('images/rash.jpg'),
-                      ),
-                      SizedBox(height: 15,),
-                      Text(
-                        "Rashida v",
-                        style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          color: Colors.black,
-                          fontSize: 18,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundImage: AssetImage('images/rash.jpg'),
                         ),
-                      ),
-                      Text(
-                        "UG Third Year",
-                        style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          color: Colors.black54,
-                          fontSize: 15,
+                        SizedBox(
+                          height: 15,
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 360, 0, 0),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        contain(
-                          path1: 'images/syllubus.png',
-                          path2: 'syllubus',
+                        Text(
+                          "Rashida v",
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            fontSize: 18,
+                          ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 25),
-                          child: contain(
-                            path1: 'images/att.png',
-                            path2: 'Attandence',
+                        Text(
+                          "UG Third Year",
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black54,
+                            fontSize: 15,
                           ),
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15),
-                      child: Row(
-                        children: [
-                          contain(
-                            path1: 'images/hom.png',
-                            path2: 'Homework',
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 25),
-                            child: contain(
-                              path1: 'images/result.jpg',
-                              path2: 'Result',
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ],
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: contain(
+                        path1: 'images/syllubus.png',
+                        path2: 'syllubus',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: contain(
+                        path1: 'images/att.png',
+                        path2: 'Attandence',
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  children: [
+                    Expanded(
+                      child: contain(
+                        path1: 'images/hom.png',
+                        path2:  'Homework',
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: contain(
+                        path1: 'images/result.jpg',
+                        path2: 'Result',
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const  Padding (
-                padding: const EdgeInsets.only(top: 10,left: 20),
+
+              const Padding(
+                padding: const EdgeInsets.only(top: 10, left: 30),
                 child: Text(
                   "Teachers",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                 ),
               ),
               Container(
-                  margin: EdgeInsets.symmetric(vertical: 20.0),
+                //margin: EdgeInsets.symmetric(horizontal: 30.0),
                   height: 50.0,
-                  child:  ListView(
+                  child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
+                      SizedBox(width: 30,),
                       teacher(
                         path: 'images/fida.jpeg',
                       ),
@@ -173,7 +181,9 @@ class homepage extends StatelessWidget {
                       teacher(
                         path: 'images/fa.jpg',
                       ),
-
+                      teacher(
+                        path: 'images/rash.jpg',
+                      ),
                       teacher(
                         path: 'images/rash.jpg',
                       ),
@@ -184,11 +194,10 @@ class homepage extends StatelessWidget {
                         path: 'images/ashi.jpeg',
                       ),
                     ],
-                  ),),
+                  )),
             ],
           ),
         ],
       ),
     );
-  }
-}
+  }}
